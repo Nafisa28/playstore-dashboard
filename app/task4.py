@@ -7,7 +7,7 @@ from datetime import datetime
 st.title("Task 4 - Stacked Area Chart Analysis")
 
 # Load dataset
-df = pd.read_csv("../data/play_store_data.csv")
+df = pd.read_csv("/data/play_store_data.csv")
 st.write("All unique categories in dataset:")
 st.write(df['Category'].unique())
 
