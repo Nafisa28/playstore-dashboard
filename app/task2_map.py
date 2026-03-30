@@ -14,19 +14,19 @@ data_path = os.path.join(current_dir, "../data/play_store_data.csv")
 df = pd.read_csv(data_path)
 
 st.subheader("Dataset Preview")
-st.write(apps_df.head())
+st.write(df.head())
 
 
 # Clean Installs column
-apps_df['Installs'] = apps_df['Installs'].str.replace('+', '', regex=False)
-apps_df['Installs'] = apps_df['Installs'].str.replace(',', '', regex=False)
-apps_df['Installs'] = pd.to_numeric(apps_df['Installs'], errors='coerce')
-apps_df['Installs'] = apps_df['Installs'].fillna(0).astype(int)
+df['Installs'] = df['Installs'].str.replace('+', '', regex=False)
+df['Installs'] = df['Installs'].str.replace(',', '', regex=False)
+df['Installs'] = pd.to_numeric(df['Installs'], errors='coerce')
+df['Installs'] = df['Installs'].fillna(0).astype(int)
 
 
 # Remove categories starting with A, C, G, S
-filtered_df = apps_df[
-    ~apps_df['Category'].str.startswith(('A', 'C', 'G', 'S'), na=False)
+filtered_df = df[
+    ~df['Category'].str.startswith(('A', 'C', 'G', 'S'), na=False)
 ]
 
 st.subheader("After Removing A/C/G/S Categories")
