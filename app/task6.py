@@ -5,7 +5,7 @@ from datetime import datetime
 import pytz
 
 # Load dataset
-df = pd.read_csv("/data/play_store_data.csv")
+df = pd.read_csv("../data/play_store_data.csv")
 
 # Title
 st.title("Task 6: Dual Axis Chart - Installs vs Revenue (Free vs Paid)")
