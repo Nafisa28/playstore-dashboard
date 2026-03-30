@@ -3,11 +3,14 @@ import pandas as pd
 import plotly.graph_objects as go
 import pytz
 from datetime import datetime
+import os
+
+current_dir = os.path.dirname(__file__)
+data_path = os.path.join(current_dir, "../data/play_store_data.csv")
+df = pd.read_csv(data_path)
 
 st.title("Task 4 - Stacked Area Chart Analysis")
 
-# Load dataset
-df = pd.read_csv("../data/play_store_data.csv")
 st.write("All unique categories in dataset:")
 st.write(df['Category'].unique())
 
