@@ -7,8 +7,11 @@ import pytz
 st.title("Task 2 – Global Installs Choropleth Map")
 
 
-# Load dataset
-app_df = pd.read_csv("../data/play_store_data.csv")
+import os
+
+current_dir = os.path.dirname(__file__)
+data_path = os.path.join(current_dir, "../data/play_store_data.csv")
+df = pd.read_csv(data_path)
 
 st.subheader("Dataset Preview")
 st.write(apps_df.head())
