@@ -3,8 +3,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import pytz
 from datetime import datetime
+import os
+
+current_dir = os.path.dirname(__file__)
+data_path = os.path.join(current_dir, "../data/play_store_data.csv")
+df = pd.read_csv(data_path)
 st.title("Task 3 - Time Series Analysis")
-df = pd.read_csv("../data/play_store_data.csv")
+
 
 st.subheader("Dataset Preview")
 st.dataframe(df.head(10))
