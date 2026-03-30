@@ -20,4 +20,4 @@ This project is a Streamlit dashboard that analyzes Google Play Store apps data.
 
 ## How to Run
 - streamlit run taskname.py
-- 
+
