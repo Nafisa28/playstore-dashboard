@@ -1,4 +1,9 @@
 import streamlit as st
+import sys
+import os
+
+# Add app folder to Python path
+sys.path.append(os.path.dirname(__file__))
 
 st.title("Google Play Store Data Analysis Dashboard")
 
@@ -11,18 +16,14 @@ task = st.sidebar.radio(
 
 if task == "Task 1":
     import task1
-
 elif task == "Task 2":
     import task2
-
 elif task == "Task 3":
     import task3
-
 elif task == "Task 4":
     import task4
-
 elif task == "Task 5":
     import task5
-
 elif task == "Task 6":
     import task6
+   
