@@ -3,9 +3,12 @@ import plotly.graph_objects as go
 import streamlit as st
 from datetime import datetime
 import pytz
+import os
 
-# Load dataset
-df = pd.read_csv("../data/play_store_data.csv")
+current_dir = os.path.dirname(__file__)
+data_path = os.path.join(current_dir, "../data/play_store_data.csv")
+df = pd.read_csv(data_path)
+
 
 # Title
 st.title("Task 6: Dual Axis Chart - Installs vs Revenue (Free vs Paid)")
