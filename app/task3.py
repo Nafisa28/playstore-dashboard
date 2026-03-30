@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pytz
 from datetime import datetime
 st.title("Task 3 - Time Series Analysis")
-df = pd.read_csv("../data/play_store_data.csv")
+df = pd.read_csv("/data/play_store_data.csv")
 
 st.subheader("Dataset Preview")
 st.dataframe(df.head(10))
