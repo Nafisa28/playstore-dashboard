@@ -9,7 +9,9 @@ import os
 current_dir = os.path.dirname(__file__)
 data_path = os.path.join(current_dir, "../data/play_store_data.csv")
 df = pd.read_csv(data_path)
-reviews_df = pd.read_csv("../data/user_reviews.csv")
+current_dir = os.path.dirname(_file_)
+reviews_path = os.path.join(current_dir, "../data/user_reviews.csv")
+reviews_df = pd.read_csv(reviews_path)
 apps_df["Category"] = apps_df["Category"].str.upper()
 
 st.subheader("Apps Dataset Preview")
