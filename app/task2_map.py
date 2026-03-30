@@ -8,7 +8,7 @@ st.title("Task 2 – Global Installs Choropleth Map")
 
 
 # Load dataset
-app_df = pd.read_csv("data/play_store_data.csv")
+app_df = pd.read_csv("../data/play_store_data.csv")
 
 st.subheader("Dataset Preview")
 st.write(apps_df.head())
