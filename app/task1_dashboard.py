@@ -18,7 +18,7 @@ st.subheader("Apps Dataset Preview")
 st.write(apps_df.head())
 
 st.subheader("Apps Dataset Columns")
-st.write(apps_df.columns)
+st.write(df.columns)
 
 st.subheader("Reviews Dataset Preview")
 st.write(reviews_df.head())
@@ -28,23 +28,23 @@ st.write(reviews_df.columns)
 
 
 # Clean Installs column safely
-apps_df['Installs'] = apps_df['Installs'].str.replace('+', '', regex=False)
-apps_df['Installs'] = apps_df['Installs'].str.replace(',', '', regex=False)
+df['Installs'] = df['Installs'].str.replace('+', '', regex=False)
+df['Installs'] = df['Installs'].str.replace(',', '', regex=False)
 
 # Convert to numeric, invalid values (like 'Free') become NaN
-apps_df['Installs'] = pd.to_numeric(apps_df['Installs'], errors='coerce')
+df['Installs'] = pd.to_numeric(apps_df['Installs'], errors='coerce')
 
 # Replace NaN with 0
-apps_df['Installs'] = apps_df['Installs'].fillna(0).astype(int)
+df['Installs'] = df['Installs'].fillna(0).astype(int)
 # Convert Rating to numeric
-apps_df['Rating'] = pd.to_numeric(apps_df['Rating'], errors='coerce')
+df['Rating'] = pd.to_numeric(apps_df['Rating'], errors='coerce')
 
 st.sidebar.header("Filters")
 
 # Category filter
 category = st.sidebar.selectbox(
     "Select Category",
-    options=apps_df['Category'].unique()
+    options=df['Category'].unique()
 )
 
 # Rating filter
@@ -56,8 +56,8 @@ min_rating = st.sidebar.slider(
 )
 
 filtered_apps = apps_df[
-    (apps_df['Category'] == category) &
-    (apps_df['Rating'] >= min_rating)
+    (df['Category'] == category) &
+    (df['Rating'] >= min_rating)
 ]
 
 st.subheader("Filtered Apps")
@@ -88,13 +88,13 @@ def convert_size(size):
         return float(size.replace('k', '')) / 1024
     return None
 
-apps_df['Size_MB'] = apps_df['Size'].apply(convert_size)
+df['Size_MB'] = df['Size'].apply(convert_size)
 
 # Convert Reviews to numeric
-apps_df['Reviews'] = pd.to_numeric(apps_df['Reviews'], errors='coerce')
+df['Reviews'] = pd.to_numeric(apps_df['Reviews'], errors='coerce')
 
 # Merge apps and reviews
-merged_df = pd.merge(apps_df, reviews_df, on='App', how='inner')
+merged_df = pd.merge(df, reviews_df, on='App', how='inner')
 
 allowed_categories = [
     'GAME', 'BEAUTY', 'BUSINESS', 'COMICS',
