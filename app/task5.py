@@ -5,7 +5,7 @@ from datetime import datetime
 import pytz
 
 # Load dataset
-df = pd.read_csv("../data/play_store_data.csv")
+df = pd.read_csv("/data/play_store_data.csv")
 
 # Task Title
 st.title("Task 5: Average Rating vs Total Reviews for Top 10 App Categories")
