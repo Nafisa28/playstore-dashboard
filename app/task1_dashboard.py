@@ -91,7 +91,7 @@ def convert_size(size):
 df['Size_MB'] = df['Size'].apply(convert_size)
 
 # Convert Reviews to numeric
-df['Reviews'] = pd.to_numeric(apps_df['Reviews'], errors='coerce')
+df['Reviews'] = pd.to_numeric(df['Reviews'], errors='coerce')
 
 # Merge apps and reviews
 merged_df = pd.merge(df, reviews_df, on='App', how='inner')
