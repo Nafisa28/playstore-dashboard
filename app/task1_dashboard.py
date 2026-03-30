@@ -4,7 +4,7 @@ import streamlit as st
 st.title("Task 1 – Google Play Store Analysis")
 
 # Load datasets
-app_df = pd.read_csv("data/play_store_data.csv")
+app_df = pd.read_csv("../data/play_store_data.csv")
 reviews_df = pd.read_csv("../data/user_reviews.csv")
 apps_df["Category"] = apps_df["Category"].str.upper()
 
