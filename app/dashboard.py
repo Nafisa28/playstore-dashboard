@@ -1,9 +1,6 @@
 import streamlit as st
-import sys
+import runpy
 import os
-
-# Add app folder to Python path
-sys.path.append(os.path.dirname(__file__))
 
 st.title("Google Play Store Data Analysis Dashboard")
 
@@ -14,16 +11,22 @@ task = st.sidebar.radio(
     ("Task 1", "Task 2", "Task 3", "Task 4", "Task 5", "Task 6")
 )
 
+base_path = os.path.dirname(__file__)
+
 if task == "Task 1":
-    import task1_dashboard
+    runpy.run_path(os.path.join(base_path, "task1_dashboard.py"))
+
 elif task == "Task 2":
-    import task2_map
+    runpy.run_path(os.path.join(base_path, "task2_map.py"))
+
 elif task == "Task 3":
-    import task3
+    runpy.run_path(os.path.join(base_path, "task3.py"))
+
 elif task == "Task 4":
-    import task4
+    runpy.run_path(os.path.join(base_path, "task4.py"))
+
 elif task == "Task 5":
-    import task5
+    runpy.run_path(os.path.join(base_path, "task5.py"))
+
 elif task == "Task 6":
-    import task6
-   
+    runpy.run_path(os.path.join(base_path, "task6.py"))
