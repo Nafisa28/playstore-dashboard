@@ -15,9 +15,9 @@ task = st.sidebar.radio(
 )
 
 if task == "Task 1":
-    import task1
+    import task1_dashboard
 elif task == "Task 2":
-    import task2
+    import task2_map
 elif task == "Task 3":
     import task3
 elif task == "Task 4":
