@@ -19,3 +19,5 @@ This project is a Streamlit dashboard that analyzes Google Play Store apps data.
 - Revenue Calculation
 
 ## How to Run
+- streamlit run taskname.py
+- 
