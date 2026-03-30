@@ -4,8 +4,11 @@ import streamlit as st
 from datetime import datetime
 import pytz
 
-# Load dataset
-df = pd.read_csv("../data/play_store_data.csv")
+import os
+
+current_dir = os.path.dirname(__file__)
+data_path = os.path.join(current_dir, "../data/play_store_data.csv")
+df = pd.read_csv(data_path)
 
 # Task Title
 st.title("Task 5: Average Rating vs Total Reviews for Top 10 App Categories")
