@@ -15,7 +15,7 @@ reviews_df = pd.read_csv(reviews_path)
 df["Category"] = df["Category"].str.upper()
 
 st.subheader("Apps Dataset Preview")
-st.write(apps_df.head())
+st.write(df.head())
 
 st.subheader("Apps Dataset Columns")
 st.write(df.columns)
@@ -32,12 +32,12 @@ df['Installs'] = df['Installs'].str.replace('+', '', regex=False)
 df['Installs'] = df['Installs'].str.replace(',', '', regex=False)
 
 # Convert to numeric, invalid values (like 'Free') become NaN
-df['Installs'] = pd.to_numeric(apps_df['Installs'], errors='coerce')
+df['Installs'] = pd.to_numeric(df['Installs'], errors='coerce')
 
 # Replace NaN with 0
 df['Installs'] = df['Installs'].fillna(0).astype(int)
 # Convert Rating to numeric
-df['Rating'] = pd.to_numeric(apps_df['Rating'], errors='coerce')
+df['Rating'] = pd.to_numeric(df['Rating'], errors='coerce')
 
 st.sidebar.header("Filters")
 
@@ -55,7 +55,7 @@ min_rating = st.sidebar.slider(
     value=3.5
 )
 
-filtered_apps = apps_df[
+filtered_apps = df[
     (df['Category'] == category) &
     (df['Rating'] >= min_rating)
 ]
